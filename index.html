@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sotaques do Sul — Documentário interativo sobre a língua viva do Brasil Meridional</title>
+<meta name="description" content="Experiência interativa sobre as variações linguísticas da Região Sul do Brasil." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,900;9..144,1,400&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ====== ABERTURA / PRELOADER ====== -->
+<div id="preloader" class="preloader" aria-hidden="true">
+  <div class="pl-inner">
+    <div class="pl-compass">✦</div>
+    <p class="pl-kicker">Documentário interativo</p>
+    <h1 class="pl-title">Sotaques <em>do Sul</em></h1>
+    <div class="pl-bar"><span></span></div>
+    <p class="pl-hint">preparando a jornada pela língua viva do Sul…</p>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress"><span id="progressBar"></span></div>
+
+<div class="hud">
+  <button id="soundToggle" class="hud-btn" title="Som ambiente"><span class="ic">🔊</span></button>
+  <button id="navToggle" class="hud-btn" title="Índice"><span class="ic">☰</span></button>
+</div>
+
+<nav id="navMenu" class="nav-menu" aria-hidden="true">
+  <div class="nav-inner">
+    <p class="nav-kicker">Índice da jornada</p>
+    <ol id="navList"></ol>
+  </div>
+</nav>
+
+<main id="deck">
+
+  <!-- 01 · HERO -->
+  <section class="scene scene--hero" id="hero" data-title="Abertura">
+    <div class="hero-photo" id="heroPhoto"></div>
+    <div class="hero-grade"></div>
+    <div class="hero-content">
+      <p class="hero-kicker reveal">Documentário interativo · Variação Linguística</p>
+      <h1 class="hero-title">
+        <span class="reveal d1">Sotaques</span>
+        <span class="hero-title-em reveal d2">do Sul</span>
+      </h1>
+      <p class="hero-sub reveal d3">A língua muda conforme a história das pessoas.<br/>Cada sotaque é a memória viva de um povo.</p>
+      <div class="hero-cta reveal d4">
+        <button class="btn-primary" data-goto="premissa">Iniciar a jornada</button>
+        <span class="scroll-hint">role para explorar ↓</span>
+      </div>
+    </div>
+    <p class="photo-credit">Araucárias ao amanhecer · Planalto Sul · foto: Wikimedia Commons</p>
+  </section>
+
+  <!-- 02 · PREMISSA -->
+  <section class="scene scene--premise" id="premissa" data-title="A premissa">
+    <div class="premise-panel">
+      <p class="section-kicker">O que é variação linguística?</p>
+      <h2 class="section-title">Ninguém fala<br/><em>errado</em>.</h2>
+      <p class="lede">Toda língua viva <strong>varia</strong>. O português do Sul mudou de boca em boca, de povo em povo, de século em século. Estudar essa variação é ouvir a história de quem fala.</p>
+      <div class="premise-stats">
+        <div class="mini-stat reveal-up" style="--i:0"><span class="ms-num" data-count="3">0</span><span>estados</span></div>
+        <div class="mini-stat reveal-up" style="--i:1"><span class="ms-num" data-count="13">0</span><span>regiões de fala</span></div>
+        <div class="mini-stat reveal-up" style="--i:2"><span class="ms-num" data-count="7">0</span><span>povos formadores</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 · TIPOS DE VARIAÇÃO (slide conceitual) -->
+  <section class="scene scene--concept" id="conceitos" data-title="Tipos de variação">
+    <div class="concept-head">
+      <p class="section-kicker light">Aula · fundamentos</p>
+      <h2 class="section-title-sm light">As quatro variações da língua</h2>
+      <p class="game-desc light">Toda variação linguística cabe em quatro dimensões. Passe por elas.</p>
+    </div>
+    <div class="concept-grid" id="conceptGrid"></div>
+  </section>
+
+  <!-- 03.5 · SLIDES: A JORNADA DOS SOTAQUES -->
+  <section class="scene scene--slides" id="jornada" data-title="A jornada dos sotaques">
+    <div class="slides-frame" id="slidesFrame">
+      <div class="slides-track" id="slidesTrack"></div>
+      <button class="slide-arrow prev" id="slidePrev" aria-label="Anterior">‹</button>
+      <button class="slide-arrow next" id="slideNext" aria-label="Próximo">›</button>
+      <div class="slide-dots" id="slideDots"></div>
+      <div class="slide-progress"><span id="slideProgress"></span></div>
+    </div>
+  </section>
+
+  <!-- 04 · MAPA -->
+  <section class="scene scene--map" id="mapa" data-title="Mapa dos dialetos">
+    <div class="map-head">
+      <p class="section-kicker">Explore · clique nas regiões</p>
+      <h2 class="section-title-sm">Mapa dos Sotaques</h2>
+    </div>
+    <div class="map-stage">
+      <div class="map-holder" id="mapHolder"></div>
+      <aside class="region-panel" id="regionPanel" aria-hidden="true">
+        <button class="panel-close" id="panelClose" aria-label="Fechar">✕</button>
+        <div class="panel-scroll" id="panelBody"></div>
+      </aside>
+    </div>
+    <p class="map-hint">Mapa geográfico real dos três estados · clique num marcador para abrir o dossiê e ouvir</p>
+  </section>
+
+  <!-- 05 · COMPARADOR -->
+  <section class="scene scene--compare" id="comparador" data-title="Comparador">
+    <div class="cmp-head">
+      <p class="section-kicker light">Lado a lado</p>
+      <h2 class="section-title-sm light">Comparador de Sotaques</h2>
+    </div>
+    <div class="cmp-selectors">
+      <select id="cmpA" class="cmp-select"></select>
+      <span class="cmp-vs">×</span>
+      <select id="cmpB" class="cmp-select"></select>
+    </div>
+    <div class="cmp-grid" id="cmpGrid"></div>
+  </section>
+
+  <!-- 06 · RECEITA -->
+  <section class="scene scene--recipe" id="receita" data-title="Receita da língua">
+    <div class="recipe-layout">
+      <article class="recipe-card">
+        <div class="rc-ribbon">Receita da casa</div>
+        <h2 class="rc-title">Dialeto Sulista</h2>
+        <p class="rc-desc">Um prato preparado ao longo de cinco séculos, servido quente e com sotaque.</p>
+        <div class="rc-meta">
+          <span>⏱️ Preparo<br/><b>~500 anos</b></span>
+          <span>🍽️ Rende<br/><b>1 língua viva</b></span>
+          <span>🔥 Nível<br/><b>Multicultural</b></span>
+        </div>
+        <h3 class="rc-sub">Ingredientes <small>(clique para adicionar)</small></h3>
+        <ul class="ing-list" id="ingList"></ul>
+        <h3 class="rc-sub">Modo de preparo</h3>
+        <ol class="prep-list" id="prepList"></ol>
+        <button class="btn-ghost" id="recipeReset">↺ Recomeçar receita</button>
+      </article>
+      <div class="recipe-board">
+        <div class="board-label">Tábua de preparo</div>
+        <div class="board-surface" id="boardItems"><span class="board-empty" id="boardEmpty">Adicione os ingredientes da receita →</span></div>
+        <div class="word-cloud" id="wordCloud"></div>
+        <div class="dish-final" id="dishFinal" aria-hidden="true">
+          <span class="df-emoji">🍲</span>
+          <h3>Pronto: <em>Dialeto Sulista</em></h3>
+          <p>Sete povos numa só panela.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 · LINHA DO TEMPO -->
+  <section class="scene scene--timeline" id="linha" data-title="Linha do tempo">
+    <div class="tl-head">
+      <p class="section-kicker">Séculos de formação</p>
+      <h2 class="section-title-sm">A Linha do Tempo da Língua</h2>
+    </div>
+    <div class="tl-track" id="tlTrack"></div>
+    <p class="map-hint">arraste para o lado →</p>
+  </section>
+
+  <!-- 08 · RAÍZES DA FALA (galeria de influências) -->
+  <section class="scene scene--roots" id="arvore" data-title="Raízes da fala">
+    <div class="roots-head">
+      <p class="section-kicker light">Quem formou o nosso falar</p>
+      <h2 class="section-title-sm light">As Raízes da Fala Sulista</h2>
+      <p class="game-desc light">Sete povos, milhares de palavras. Toque num povo para ver o que ele deixou na língua.</p>
+    </div>
+    <div class="roots-gallery" id="rootsGallery"></div>
+    <div class="roots-detail" id="rootsDetail" aria-hidden="true"></div>
+  </section>
+
+  <!-- 10 · DICIONÁRIO -->
+  <section class="scene scene--dict" id="dicionario" data-title="Dicionário">
+    <div class="dict-head">
+      <p class="section-kicker light">Vocabulário do Sul</p>
+      <h2 class="section-title-sm light">Dicionário Interativo</h2>
+      <input type="search" id="dictSearch" class="dict-search" placeholder="Buscar palavra, região ou origem…" />
+    </div>
+    <div class="dict-grid" id="dictGrid"></div>
+  </section>
+
+  <!-- 11 · PRECONCEITO (slide conceitual) -->
+  <section class="scene scene--prejudice" id="preconceito" data-title="Preconceito linguístico">
+    <div class="prej-panel">
+      <p class="section-kicker light">Aula · cidadania</p>
+      <h2 class="section-title light">Preconceito<br/>linguístico</h2>
+      <p class="lede light">Julgar alguém pelo jeito de falar é discriminar sua origem. <strong>Não existe fala superior.</strong> A norma-padrão é uma variedade entre muitas — nenhuma é a “certa” em termos científicos.</p>
+      <div class="prej-cards">
+        <div class="prej-card reveal-up" style="--i:0"><span>❌ Mito</span><p>“Fulano fala tudo errado.”</p></div>
+        <div class="prej-card reveal-up" style="--i:1"><span>✅ Ciência</span><p>Ele fala uma <b>variedade</b> diferente da sua.</p></div>
+        <div class="prej-card reveal-up" style="--i:2"><span>❌ Mito</span><p>“Sotaque de interior é feio.”</p></div>
+        <div class="prej-card reveal-up" style="--i:3"><span>✅ Ciência</span><p>“Feio/bonito” é <b>juízo social</b>, não linguístico.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 · JOGO: DESCUBRA A REGIÃO -->
+  <section class="scene scene--game" id="descubra" data-title="Jogo: descubra a região">
+    <div class="game-card">
+      <p class="section-kicker">Jogo de escuta</p>
+      <h2 class="section-title-sm">Descubra a Região</h2>
+      <p class="game-desc">Ouça a frase e adivinhe de qual sotaque ela veio.</p>
+      <div id="guessGame" class="guess-game"></div>
+    </div>
+  </section>
+
+  <!-- 13 · QUIZ -->
+  <section class="scene scene--quiz" id="quiz" data-title="Quiz">
+    <div class="quiz-card">
+      <p class="section-kicker light">Desafio</p>
+      <h2 class="section-title-sm light">Mito, Verdade ou Gíria?</h2>
+      <div id="quizArea"></div>
+    </div>
+  </section>
+
+  <!-- 14 · JOGO DAS EXPRESSÕES -->
+  <section class="scene scene--match" id="expressoes" data-title="Jogo das expressões">
+    <div class="match-head">
+      <p class="section-kicker">Memória cultural</p>
+      <h2 class="section-title-sm">Jogo das Expressões</h2>
+      <p class="game-desc">Encontre os pares: expressão × significado.</p>
+    </div>
+    <div class="match-board" id="matchBoard"></div>
+    <p class="match-status" id="matchStatus"></p>
+  </section>
+
+  <!-- 14.5 · DESAFIO EM DUPLA -->
+  <section class="scene scene--duo" id="dupla" data-title="Desafio em dupla">
+    <div class="game-card duo-card">
+      <p class="section-kicker">Jogo para dois</p>
+      <h2 class="section-title-sm">Desafio em Dupla</h2>
+      <div id="duoArea"></div>
+    </div>
+  </section>
+
+  <!-- 15 · CAÇA AO PRECONCEITO -->
+  <section class="scene scene--caca" id="caca" data-title="Detetive do preconceito">
+    <div class="caca-card">
+      <p class="section-kicker light">Pensamento crítico</p>
+      <h2 class="section-title-sm light">Detetive do Preconceito</h2>
+      <p class="game-desc light">Casos reais de linguagem. Encontre a análise correta — e entenda o porquê.</p>
+      <div id="cacaArea"></div>
+    </div>
+  </section>
+
+  <!-- 17 · ESTATÍSTICAS -->
+  <section class="scene scene--stats" id="estatisticas" data-title="Estatísticas">
+    <div class="stats-head">
+      <p class="section-kicker">Números da diversidade</p>
+      <h2 class="section-title-sm">Estatísticas & Influências</h2>
+    </div>
+    <div class="stats-grid" id="statsGrid"></div>
+  </section>
+
+  <!-- 18 · FINAL -->
+  <section class="scene scene--finale" id="final" data-title="Encerramento">
+    <div class="finale-map" id="finaleMap"></div>
+    <div class="finale-content">
+      <h2 class="finale-title reveal-up">Cada sotaque é<br/>uma história inteira.</h2>
+      <p class="finale-text reveal-up">O Sul fala com muitas vozes — indígena, portuguesa, açoriana, italiana, alemã, eslava e africana. Nenhuma vale mais que a outra. Valorizar a diversidade linguística é respeitar a história de cada povo.</p>
+      <button class="btn-primary reveal-up" id="finaleFill">Preencher o mapa de palavras</button>
+      <p class="finale-credit">Sotaques do Sul · experiência educativa interativa · imagens: Wikimedia Commons</p>
+    </div>
+  </section>
+
+</main>
+
+<div class="curio-toast" id="curioToast" aria-hidden="true">
+  <span class="curio-badge">Você sabia?</span>
+  <p id="curioText"></p>
+</div>
+
+<script src="js/geo.js"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script src="js/games.js"></script>
+<script src="js/polish.js"></script>
+</body>
+</html>

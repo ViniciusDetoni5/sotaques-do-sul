@@ -1,0 +1,3 @@
+﻿Coloque aqui seus audios reais (mp3/ogg/wav) e mapeie em js/data.js -> AUDIO_MANIFEST.
+Ex.: reg:litoral-sc -> litoral-sc.mp3 ; wrd:bah -> bah.mp3
+O que nao estiver mapeado usa a voz sintetica do navegador.
