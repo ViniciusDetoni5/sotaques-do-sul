@@ -856,14 +856,39 @@ const POVOS = [
 ];
 
 /* ---- ÁUDIO REAL (opcional) ------------------------------------------
-   Áudios reais de sotaque por região praticamente não existem como
-   acervo livre. Este é um sistema "plug-and-play": grave seus próprios
-   áudios (MP3/OGG/WAV), coloque em assets/audio/ e mapeie aqui.
-   Chaves: "reg:<id>" para a frase da região · "wrd:<palavra>" para palavra.
-   O que não estiver aqui usa a voz sintética do navegador (fallback).
-   Ex.: "reg:litoral-sc": "litoral-sc.mp3", "wrd:bah": "bah.mp3"
+   Sistema "plug-and-play": grave seus próprios áudios e coloque em
+   assets/audio/. NÃO precisa mexer neste arquivo.
+
+   COMO USAR (fluxo WhatsApp):
+   1. Grave o áudio de cada região no WhatsApp.
+   2. Baixe pelo WhatsApp Web (áudio do WhatsApp sai em .opus).
+   3. Renomeie com o ID da região (ex.: litoral-sc.opus, curitiba.opus).
+   4. Jogue o arquivo dentro de assets/audio/.
+
+   Formato .opus toca no Chrome, Edge e Firefox. Se algum arquivo faltar
+   ou o navegador não tocar, o site usa a voz sintética automaticamente.
+
+   Para trocar a extensão (ex.: usar .mp3), é só mudar aqui embaixo.
+   Chaves: "reg:<id>" = frase da região · "wrd:<palavra>" = palavra solta.
 -------------------------------------------------------------------- */
-const AUDIO_MANIFEST = {};
+const AUDIO_MANIFEST = {
+  "reg:norte-pr":     "norte-pr.opus",
+  "reg:curitiba":     "curitiba.opus",
+  "reg:campos-gerais":"campos-gerais.opus",
+  "reg:oeste-pr":     "oeste-pr.opus",
+  "reg:oeste-sc":     "oeste-sc.opus",
+  "reg:planalto-sc":  "planalto-sc.opus",
+  "reg:oeste-vale":   "oeste-vale.opus",
+  "reg:norte-sc":     "norte-sc.opus",
+  "reg:litoral-sc":   "litoral-sc.opus",
+  "reg:missoes":      "missoes.opus",
+  "reg:serra-gaucha": "serra-gaucha.opus",
+  "reg:porto-alegre": "porto-alegre.opus",
+  "reg:campanha":     "campanha.opus"
+};
+/* Expõe no window: o app.js lê como window.AUDIO_MANIFEST.
+   (const no topo não vira propriedade do window sozinho.) */
+window.AUDIO_MANIFEST = AUDIO_MANIFEST;
 
 /* ---- FOTOS DA LINHA DO TEMPO (por índice de TIMELINE) ---- */
 const TIMELINE_IMG = [

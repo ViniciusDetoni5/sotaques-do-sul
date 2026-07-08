@@ -1,3 +1,28 @@
-﻿Coloque aqui seus audios reais (mp3/ogg/wav) e mapeie em js/data.js -> AUDIO_MANIFEST.
-Ex.: reg:litoral-sc -> litoral-sc.mp3 ; wrd:bah -> bah.mp3
-O que nao estiver mapeado usa a voz sintetica do navegador.
+COMO COLOCAR OS AUDIOS REAIS (fluxo WhatsApp)
+==============================================
+
+1. Grave o audio de cada regiao no WhatsApp (pode mandar para voce mesmo).
+2. Baixe pelo WhatsApp Web no PC (o audio sai no formato .opus).
+3. Renomeie com o ID da regiao e coloque o arquivo AQUI (assets/audio/).
+4. Pronto. Nao precisa mexer em codigo.
+
+O que faltar continua usando a voz sintetica do navegador (fallback).
+Formato .opus toca no Chrome, Edge e Firefox.
+
+NOMES DOS ARQUIVOS (frase de cada regiao):
+  norte-pr.opus
+  curitiba.opus
+  campos-gerais.opus
+  oeste-pr.opus
+  oeste-sc.opus
+  planalto-sc.opus
+  oeste-vale.opus
+  norte-sc.opus
+  litoral-sc.opus
+  missoes.opus
+  serra-gaucha.opus
+  porto-alegre.opus
+  campanha.opus
+
+O mapeamento fica em js/data.js -> AUDIO_MANIFEST (ja esta pronto).
+Para usar outra extensao (ex.: .mp3), troque la.
