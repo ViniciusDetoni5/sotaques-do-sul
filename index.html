@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,0,900;9..144,1,400&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css?v=7" />
 </head>
 <body>
 
@@ -124,35 +124,14 @@
     <div class="cmp-grid" id="cmpGrid"></div>
   </section>
 
-  <!-- 06 · RECEITA -->
+  <!-- 06 · RECEITA (JOGO) -->
   <section class="scene scene--recipe" id="receita" data-title="Receita da língua">
-    <div class="recipe-layout">
-      <article class="recipe-card">
-        <div class="rc-ribbon">Receita da casa</div>
-        <h2 class="rc-title">Dialeto Sulista</h2>
-        <p class="rc-desc">Um prato preparado ao longo de cinco séculos, servido quente e com sotaque.</p>
-        <div class="rc-meta">
-          <span>⏱️ Preparo<br/><b>~500 anos</b></span>
-          <span>🍽️ Rende<br/><b>1 língua viva</b></span>
-          <span>🔥 Nível<br/><b>Multicultural</b></span>
-        </div>
-        <h3 class="rc-sub">Ingredientes <small>(clique para adicionar)</small></h3>
-        <ul class="ing-list" id="ingList"></ul>
-        <h3 class="rc-sub">Modo de preparo</h3>
-        <ol class="prep-list" id="prepList"></ol>
-        <button class="btn-ghost" id="recipeReset">↺ Recomeçar receita</button>
-      </article>
-      <div class="recipe-board">
-        <div class="board-label">Tábua de preparo</div>
-        <div class="board-surface" id="boardItems"><span class="board-empty" id="boardEmpty">Adicione os ingredientes da receita →</span></div>
-        <div class="word-cloud" id="wordCloud"></div>
-        <div class="dish-final" id="dishFinal" aria-hidden="true">
-          <span class="df-emoji">🍲</span>
-          <h3>Pronto: <em>Dialeto Sulista</em></h3>
-          <p>Sete povos numa só panela.</p>
-        </div>
-      </div>
+    <div class="rg-head">
+      <p class="section-kicker light">Jogo · monte o prato</p>
+      <h2 class="section-title-sm light">A Receita do Dialeto Sulista</h2>
+      <p class="game-desc light">Cada palavra é um tempero. Descubra qual povo trouxe cada uma e cozinhe o dialeto — sozinho ou em dupla, contra o relógio.</p>
     </div>
+    <div id="recipeGame" class="recipe-game"></div>
   </section>
 
   <!-- 07 · LINHA DO TEMPO -->
@@ -211,15 +190,6 @@
     </div>
   </section>
 
-  <!-- 13 · QUIZ -->
-  <section class="scene scene--quiz" id="quiz" data-title="Quiz">
-    <div class="quiz-card">
-      <p class="section-kicker light">Desafio</p>
-      <h2 class="section-title-sm light">Mito, Verdade ou Gíria?</h2>
-      <div id="quizArea"></div>
-    </div>
-  </section>
-
   <!-- 14 · JOGO DAS EXPRESSÕES -->
   <section class="scene scene--match" id="expressoes" data-title="Jogo das expressões">
     <div class="match-head">
@@ -231,23 +201,34 @@
     <p class="match-status" id="matchStatus"></p>
   </section>
 
-  <!-- 14.5 · DESAFIO EM DUPLA -->
-  <section class="scene scene--duo" id="dupla" data-title="Desafio em dupla">
-    <div class="game-card duo-card">
-      <p class="section-kicker">Jogo para dois</p>
-      <h2 class="section-title-sm">Desafio em Dupla</h2>
-      <div id="duoArea"></div>
+  <!-- 15 · JOGO: DIRETOR DE CINEMA -->
+  <section class="scene scene--cinema" id="cinema" data-title="Diretor de Cinema">
+    <div class="cine-head">
+      <p class="section-kicker light">Jogo · dublagem</p>
+      <h2 class="section-title-sm light">Diretor de Cinema</h2>
+      <p class="game-desc light">Assista à cena muda e escolha a legenda que fala como gente do Sul.</p>
     </div>
+    <div id="cinemaGame" class="cinema-game"></div>
   </section>
 
-  <!-- 15 · CAÇA AO PRECONCEITO -->
-  <section class="scene scene--caca" id="caca" data-title="Detetive do preconceito">
-    <div class="caca-card">
-      <p class="section-kicker light">Pensamento crítico</p>
-      <h2 class="section-title-sm light">Detetive do Preconceito</h2>
-      <p class="game-desc light">Casos reais de linguagem. Encontre a análise correta — e entenda o porquê.</p>
-      <div id="cacaArea"></div>
+  <!-- 15.5 · JOGO: RODA DE CHIMARRÃO -->
+  <section class="scene scene--chima" id="chimarrao" data-title="Roda de Chimarrão">
+    <div class="chima-head">
+      <p class="section-kicker light">Jogo · batata-quente</p>
+      <h2 class="section-title-sm light">Roda de Chimarrão</h2>
+      <p class="game-desc light">Passem a cuia de mão em mão — quem segurar quando a água esfriar, perde!</p>
     </div>
+    <div id="chimaGame" class="chima-game"></div>
+  </section>
+
+  <!-- 15.7 · JOGO: TELEFONE SEM FIO REGIONAL -->
+  <section class="scene scene--mimica" id="mimica" data-title="Telefone Sem Fio">
+    <div class="mim-head">
+      <p class="section-kicker light">Jogo em dupla · mímica</p>
+      <h2 class="section-title-sm light">Telefone Sem Fio Regional</h2>
+      <p class="game-desc light">Desenhe ou faça mímica de uma frase cheia de regionalismos — sem falar!</p>
+    </div>
+    <div id="mimicaGame" class="mimica-game"></div>
   </section>
 
   <!-- 17 · ESTATÍSTICAS -->
@@ -277,10 +258,10 @@
   <p id="curioText"></p>
 </div>
 
-<script src="js/geo.js"></script>
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
-<script src="js/games.js"></script>
-<script src="js/polish.js"></script>
+<script src="js/geo.js?v=7"></script>
+<script src="js/data.js?v=7"></script>
+<script src="js/app.js?v=7"></script>
+<script src="js/games.js?v=7"></script>
+<script src="js/polish.js?v=7"></script>
 </body>
 </html>

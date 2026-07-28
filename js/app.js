@@ -107,43 +107,27 @@
   }
 
   /* =====================================================================
-     ÁUDIO
+     ÁUDIO — somente gravações reais (sem voz sintética / IA)
+     Só reproduz o que existir em assets/audio/ e estiver listado em
+     AUDIO_MANIFEST. Sem gravação, não há reprodução (nunca usa IA).
      ===================================================================== */
-  const synth = window.speechSynthesis;
-  let ptVoice = null;
-  function pickVoice() {
-    if (!synth) return;
-    const vs = synth.getVoices().filter(v => /^pt/i.test(v.lang));
-    // prefere vozes pt-BR mais naturais (Google/Microsoft/Luciana) quando disponíveis
-    ptVoice = vs.find(v => /pt[-_]BR/i.test(v.lang) && /google/i.test(v.name))
-      || vs.find(v => /pt[-_]BR/i.test(v.lang) && /(natural|luciana|francisca|maria|online)/i.test(v.name))
-      || vs.find(v => /pt[-_]BR/i.test(v.lang))
-      || vs[0] || null;
-  }
-  if (synth) { pickVoice(); synth.onvoiceschanged = pickVoice; }
-  function speak(text, { rate = 1, pitch = 1, onWord, onEnd } = {}) {
-    if (!synth) { onEnd && onEnd(); return; }
-    synth.cancel();
-    const u = new SpeechSynthesisUtterance(text);
-    u.lang = "pt-BR"; u.rate = rate; u.pitch = pitch; if (ptVoice) u.voice = ptVoice;
-    if (onWord) u.onboundary = e => { if (e.name === "word" || e.charIndex != null) onWord(e.charIndex); };
-    u.onend = () => onEnd && onEnd(); u.onerror = () => onEnd && onEnd();
-    synth.speak(u);
-  }
-  // Toca áudio REAL se houver no manifesto; senão usa voz sintética (fallback).
   const AUDIO_DIR = "assets/audio/";
-  function playAudio(key, fallbackText, opts = {}) {
+  // Existe gravação real para esta chave ("reg:<id>")?
+  function hasAudioKey(key) { return !!(window.AUDIO_MANIFEST && window.AUDIO_MANIFEST[key]); }
+  // Existe gravação real (áudio de verdade) para esta região?
+  function hasRealAudio(id) { return hasAudioKey("reg:" + id); }
+  // Toca a gravação real, se houver. Sem arquivo, não faz nada (nunca IA).
+  // opts.onEnd: terminou de tocar · opts.onError: falhou ao carregar/tocar.
+  function playAudio(key, _fallbackText, opts = {}) {
+    const fail = opts.onError || opts.onEnd;
     const file = window.AUDIO_MANIFEST && window.AUDIO_MANIFEST[key];
-    if (file) {
-      const a = new Audio(AUDIO_DIR + file);
-      a.onended = () => opts.onEnd && opts.onEnd();
-      a.onerror = () => speak(fallbackText, opts);
-      const pr = a.play();
-      if (pr && pr.catch) pr.catch(() => speak(fallbackText, opts));
-      return a;
-    }
-    speak(fallbackText, opts);
-    return null;
+    if (!file) { fail && fail(); return null; }
+    const a = new Audio(AUDIO_DIR + file);
+    a.onended = () => opts.onEnd && opts.onEnd();
+    a.onerror = () => fail && fail();
+    const pr = a.play();
+    if (pr && pr.catch) pr.catch(() => fail && fail());
+    return a;
   }
 
   /* =====================================================================
@@ -256,7 +240,9 @@
       <div class="panel-inner">
         <h3 class="panel-name">${r.nome}</h3>
         <p class="panel-state">${r.estado}</p>
-        <button class="panel-audio" id="panelAudio"><span class="pa-ic">▶</span> Ouvir o sotaque</button>
+        ${hasRealAudio(r.id)
+          ? `<button class="panel-audio" id="panelAudio"><span class="pa-ic">▶</span> Ouvir o sotaque</button>`
+          : `<p class="panel-audio-missing">🎙️ Gravação real ainda não disponível para esta região.</p>`}
         <p class="panel-phrase" id="panelPhrase">${phraseHTML}</p>
         <div class="panel-block"><h4>📖 Descrição</h4><p>${r.descricao}</p></div>
         <div class="panel-block"><h4>🌱 Origem</h4><p>${r.origem}</p></div>
@@ -268,27 +254,30 @@
       </div>`;
     panel.classList.add("open"); panel.setAttribute("aria-hidden", "false");
     panelWords = $$("#panelPhrase .wrd");
-    $("#panelAudio").addEventListener("click", e => playPhrase(r, e.currentTarget));
+    const audioBtn = $("#panelAudio");
+    if (audioBtn) audioBtn.addEventListener("click", e => playPhrase(r, e.currentTarget));
   }
   let panelAudioEl = null;
+  function setPanelBtn(btn, ic, txt) { btn.innerHTML = `<span class="pa-ic">${ic}</span> ${txt}`; }
   function playPhrase(r, btn) {
-    if (btn.classList.contains("playing")) { if (synth) synth.cancel(); if (panelAudioEl) { panelAudioEl.pause(); panelAudioEl = null; } btn.classList.remove("playing"); btn.querySelector(".pa-ic").textContent = "▶"; return; }
-    btn.classList.add("playing"); btn.querySelector(".pa-ic").textContent = "❚❚";
-    panelWords.forEach(w => w.classList.remove("hl"));
-    const done = () => { btn.classList.remove("playing"); btn.querySelector(".pa-ic").textContent = "▶"; panelWords.forEach(w => w.classList.remove("hl")); };
-    const realFile = window.AUDIO_MANIFEST && window.AUDIO_MANIFEST["reg:" + r.id];
-    if (realFile) { panelAudioEl = playAudio("reg:" + r.id, r.frase, { onEnd: done }); return; }
-    speak(r.frase, {
-      rate: r.rate, pitch: r.pitch,
-      onWord: ci => panelWords.forEach(w => w.classList.toggle("hl", ci >= +w.dataset.s && ci < +w.dataset.e)),
-      onEnd: done
-    });
+    if (btn.classList.contains("playing")) {
+      if (panelAudioEl) { panelAudioEl.pause(); panelAudioEl = null; }
+      btn.classList.remove("playing"); setPanelBtn(btn, "▶", "Ouvir o sotaque");
+      return;
+    }
+    btn.classList.remove("failed"); btn.classList.add("playing"); setPanelBtn(btn, "❚❚", "Tocando…");
+    const done = () => { btn.classList.remove("playing"); setPanelBtn(btn, "▶", "Ouvir o sotaque"); };
+    const fail = () => {
+      btn.classList.remove("playing"); btn.classList.add("failed"); setPanelBtn(btn, "⚠️", "Áudio indisponível");
+      setTimeout(() => { if (!btn.classList.contains("playing")) { btn.classList.remove("failed"); setPanelBtn(btn, "▶", "Ouvir o sotaque"); } }, 2800);
+    };
+    panelAudioEl = playAudio("reg:" + r.id, r.frase, { onEnd: done, onError: fail });
   }
   function closePanel() {
     panel.classList.remove("open"); panel.setAttribute("aria-hidden", "true");
     $$(".state-path").forEach(p => p.classList.remove("dim"));
     $$(".region-marker").forEach(m => m.classList.remove("active"));
-    if (synth) synth.cancel();
+    if (panelAudioEl) { panelAudioEl.pause(); panelAudioEl = null; }
   }
   $("#panelClose").addEventListener("click", closePanel);
   $("#mapHolder").addEventListener("click", e => { const m = e.target.closest(".region-marker"); if (m) openRegion(m.dataset.id); });
@@ -308,59 +297,17 @@
         <h3>${r.nome}</h3><p class="cmp-city">${r.cidade}</p>
         ${rows.map(([l, k]) => `<div class="cmp-row diff"><div class="cmp-key">${l}</div><div class="cmp-val">${r[k]}</div></div>`).join("")}
         <div class="cmp-row"><div class="cmp-key">Palavras</div><div class="cmp-val">${r.palavras.map(p => p.w).join(" · ")}</div></div>
-        <button class="btn-ghost cmp-play" data-id="${r.id}" style="margin-top:1rem;color:var(--parch);border-color:rgba(255,255,255,.3)">▶ Ouvir</button>
+        ${hasRealAudio(r.id)
+          ? `<button class="btn-ghost cmp-play" data-id="${r.id}" style="margin-top:1rem;color:var(--parch);border-color:rgba(255,255,255,.3)">▶ Ouvir</button>`
+          : `<span class="cmp-noaudio" style="display:inline-block;margin-top:1rem;font-size:.8rem;opacity:.7">🎙️ Sem gravação real</span>`}
       </div>`).join("");
-    $$(".cmp-play", cmpGrid).forEach(btn => btn.addEventListener("click", () => { const r = REGIOES.find(x => x.id === btn.dataset.id); playAudio("reg:" + r.id, r.frase, { rate: r.rate, pitch: r.pitch }); }));
+    $$(".cmp-play", cmpGrid).forEach(btn => btn.addEventListener("click", () => { const r = REGIOES.find(x => x.id === btn.dataset.id); playAudio("reg:" + r.id, r.frase); }));
   }
   cmpA.addEventListener("change", renderCompare); cmpB.addEventListener("change", renderCompare); renderCompare();
 
   /* =====================================================================
-     RECEITA (realista, com fotos)
+     RECEITA — agora é o jogo "A Receita do Dialeto Sulista" (ver games.js)
      ===================================================================== */
-  const ingList = $("#ingList"), prepList = $("#prepList"), boardItems = $("#boardItems"),
-    boardEmpty = $("#boardEmpty"), wordCloud = $("#wordCloud"), dishFinal = $("#dishFinal");
-  const QTY = ["1 punhado de", "2 xícaras de", "a gosto:", "1 dose de", "1 pitada de"];
-  RECEITA.forEach((ing, i) => {
-    const li = document.createElement("li");
-    li.className = "ing-item"; li.dataset.id = ing.id;
-    const thumb = (RECEITA_IMG[ing.id] && RECEITA_IMG[ing.id][0][0]) || "wood.jpg";
-    li.innerHTML = `<img class="ing-thumb" src="${IMG}${thumb}" alt="" loading="lazy">
-      <div class="ing-info"><div class="ing-name">${ing.nome}</div><div class="ing-qty">${QTY[i]} ${ing.subtitulo.toLowerCase()}</div></div>
-      <span class="ing-check">✓</span>`;
-    li.addEventListener("click", () => addIngredient(li, ing));
-    ingList.appendChild(li);
-    const step = document.createElement("li");
-    step.dataset.id = ing.id; step.textContent = ing.texto;
-    prepList.appendChild(step);
-  });
-  let added = 0;
-  function addIngredient(li, ing) {
-    if (li.classList.contains("added")) return;
-    li.classList.add("added"); added++;
-    boardEmpty.style.display = "none";
-    $$("#prepList li").forEach(s => { if (s.dataset.id === ing.id) s.classList.add("done"); });
-    (RECEITA_IMG[ing.id] || []).forEach(([file, cap], k) => {
-      setTimeout(() => {
-        const chip = document.createElement("div");
-        chip.className = "board-chip";
-        chip.innerHTML = `<img src="${IMG}${file}" alt="${cap}" loading="lazy"><span>${cap}</span>`;
-        boardItems.appendChild(chip);
-      }, k * 180);
-    });
-    ing.palavras.forEach((w, k) => setTimeout(() => {
-      const wc = document.createElement("span"); wc.className = "wc-word"; wc.textContent = w;
-      wc.style.background = shade(ing.cor, 40); wordCloud.appendChild(wc);
-    }, 200 + k * 90));
-    if (added === RECEITA.length) setTimeout(() => { dishFinal.classList.add("show"); dishFinal.setAttribute("aria-hidden", "false"); }, 700);
-  }
-  $("#recipeReset").addEventListener("click", () => {
-    added = 0;
-    $$(".ing-item").forEach(x => x.classList.remove("added"));
-    $$("#prepList li").forEach(s => s.classList.remove("done"));
-    boardItems.querySelectorAll(".board-chip").forEach(c => c.remove());
-    wordCloud.innerHTML = ""; boardEmpty.style.display = "";
-    dishFinal.classList.remove("show"); dishFinal.setAttribute("aria-hidden", "true");
-  });
 
   /* =====================================================================
      TIMELINE
@@ -398,13 +345,12 @@
         <div class="rd-head"><span class="rd-emoji">${p.emoji}</span>
           <div><h3 class="rd-name">${p.nome}</h3><p class="rd-resumo">${p.resumo}</p></div></div>
         <div class="rd-words">${p.palavras.map(w => `<button class="rd-chip" data-w="${escAttr(w.w)}" data-o="${escAttr(w.o)}">${w.w}</button>`).join("")}</div>
-        <p class="rd-ety" id="rdEty">👆 Toque numa palavra para ouvir e ver a origem.</p>`;
+        <p class="rd-ety" id="rdEty">👆 Toque numa palavra para ver a origem.</p>`;
       detail.setAttribute("aria-hidden", "false");
       $$(".rd-chip", detail).forEach(ch => ch.addEventListener("click", () => {
         $$(".rd-chip", detail).forEach(c => c.classList.remove("on"));
         ch.classList.add("on");
         $("#rdEty").innerHTML = `<b style="color:${p.cor}">${ch.dataset.w}</b> — ${ch.dataset.o}`;
-        playAudio("wrd:" + ch.dataset.w.toLowerCase(), ch.dataset.w, {});
       }));
     }
     gallery.addEventListener("click", e => { const c = e.target.closest(".root-card"); if (c) select(c.dataset.id); });
@@ -421,12 +367,10 @@
     if (!list.length) { dictGrid.innerHTML = `<p class="dict-empty">Nenhuma palavra encontrada para “${q}”.</p>`; return; }
     dictGrid.innerHTML = list.map(d => `
       <div class="dict-card">
-        <button class="dict-audio" data-word="${escAttr(d.p.toLowerCase())}" data-w="${escAttr(d.p + ". " + d.ex)}" aria-label="Ouvir">▶</button>
         <div class="dict-word">${d.p}</div>
         <div class="dict-meta"><span class="dict-tag">${d.reg}</span><span class="dict-tag ori">${d.ori}</span></div>
         <div class="dict-sig">${d.sig}</div><div class="dict-ex">“${d.ex}”</div>
       </div>`).join("");
-    $$(".dict-audio", dictGrid).forEach(b => b.addEventListener("click", () => playAudio("wrd:" + b.dataset.word, b.dataset.w, {})));
   }
   dictSearch.addEventListener("input", () => renderDict(dictSearch.value)); renderDict();
 
@@ -534,5 +478,5 @@
   function escAttr(s) { return String(s).replace(/"/g, "&quot;"); }
   function shade(hex, p) { const n = parseInt(hex.slice(1), 16); let r = (n >> 16) + Math.round(2.55 * p), g = ((n >> 8) & 255) + Math.round(2.55 * p), b = (n & 255) + Math.round(2.55 * p); r = Math.max(0, Math.min(255, r)); g = Math.max(0, Math.min(255, g)); b = Math.max(0, Math.min(255, b)); return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1); }
 
-  window.SDS = { speak, playAudio, REGIOES, goto };
+  window.SDS = { playAudio, hasRealAudio, REGIOES, goto };
 })();

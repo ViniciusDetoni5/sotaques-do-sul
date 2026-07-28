@@ -64,7 +64,7 @@ Todo o conteúdo (regiões, palavras, quiz, slides, estatísticas) está em **`j
 
 ## 🔊 Áudio
 
-As pronúncias usam a **síntese de voz do navegador** (pt-BR). Para usar **áudios reais**, grave os arquivos, coloque em `assets/audio/` e mapeie em `AUDIO_MANIFEST` (em `js/data.js`).
+O site reproduz **somente gravações reais** — **não há voz sintética (IA)**. Uma região só mostra o botão **“Ouvir o sotaque”** (e só entra nos jogos de escuta) quando existe a gravação correspondente. Para adicionar o áudio de uma região, grave o arquivo, coloque em `assets/audio/` e liste-o em `AUDIO_MANIFEST` (em `js/data.js`). Atualmente há gravação real para 7 das 13 regiões.
 
 ---
 

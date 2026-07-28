@@ -16,21 +16,21 @@ const REGIOES = [
     cor: "#E7B23A",
     x: 470, y: 150,
     influencia: "Influência paulista",
-    imigracao: "Migração paulista, mineira e nordestina (ciclo do café)",
-    origem: "Colonizada no século XX pela expansão cafeeira vinda de São Paulo, herdou o falar caipira paulista.",
-    fonetica: "Presença marcante do 'r' retroflexo (o famoso 'r caipira'), como em \"por-r-ta\".",
-    descricao: "Terra do café e do falar cantado do interior paulista, misturado a levas nordestinas e mineiras.",
+    imigracao: "Paulistas, mineiros, italianos e japoneses.",
+    origem: "Região de colonização mais recente, impulsionada pela expansão cafeeira no século XX.",
+    fonetica: "Sotaque com forte influência do interior paulista e mineiro, marcado pelo “R” retroflexo.",
+    descricao: "Onde o “R” puxado paulista se encontra com as terras férteis do Sul do Brasil.",
     curiosidades: [
-      "Londrina significa 'pequena Londres', homenagem aos ingleses que financiaram a colonização.",
-      "O 'r' retroflexo aproxima o sotaque daqui do interior de São Paulo mais do que de Curitiba."
+      "Londrina é conhecida como a “Pequena Londres” devido aos colonizadores britânicos.",
+      "A cultura do café formou a base econômica e cultural de quase todas as cidades da região."
     ],
     palavras: [
-      { w: "trem", m: "coisa, objeto (herança mineira)" },
-      { w: "uai", m: "interjeição de espanto" },
-      { w: "arreda", m: "sair, afastar-se" }
+      { w: "peroba", m: "madeira de lei abundante na região, usada em construções antigas" },
+      { w: "terra roxa", m: "solo extremamente fértil originado de rochas basálticas" },
+      { w: "gala-seca", m: "pessoa boba ou sem graça" }
     ],
-    expressoes: ["\"Que trem bão!\"", "\"Vô ali e vorto já.\""],
-    frase: "Nossa, que trem bão esse cafezinho, uai!",
+    expressoes: ["“Vamo posá lá hoje.”", "“Fiquei num mato sem cachorro.”"],
+    frase: "Rapaz do céu, com essa terra roxa, se der uma chuva vira um barro só!",
     rate: 0.95, pitch: 1.0
   },
   {
@@ -41,21 +41,21 @@ const REGIOES = [
     cor: "#E8853B",
     x: 610, y: 300,
     influencia: "Sotaque curitibano",
-    imigracao: "Portuguesa, alemã, italiana, polonesa e ucraniana",
-    origem: "Capital planejada e fria, formou um sotaque próprio, pausado e com vogais fechadas.",
-    fonetica: "Vogais fechadas e o 'e' quase mudo no fim das palavras: \"lê-t\" em vez de \"lei-te\".",
-    descricao: "O falar da capital: contido, elegante e cheio de expressões próprias como 'daí'.",
+    imigracao: "Poloneses, ucranianos, italianos, alemães e japoneses.",
+    origem: "Inicialmente um povoado de mineração de ouro que enriqueceu com a exploração da erva-mate.",
+    fonetica: "Vogais bem fechadas e o “E” pronunciado de forma aguda e ligeiramente anasalada (como em leite quente).",
+    descricao: "Cidade modelo, marcada por parques bem cuidados, frio no inverno e um jeito mais reservado.",
     curiosidades: [
-      "O 'daí' curitibano é usado para começar, continuar e terminar histórias.",
-      "Curitibano fala 'a' e 'o' bem fechados por influência do clima e da imigração europeia."
+      "O termo “vina” vem da palavra alemã “Wiener” (salsicha tipo Viena).",
+      "Curitiba concentra a maior comunidade de descendentes de poloneses do Brasil."
     ],
     palavras: [
-      { w: "daí", m: "conector universal de frases" },
-      { w: "piá", m: "menino, garoto" },
-      { w: "vina", m: "salsicha" }
+      { w: "vina", m: "salsicha de cachorro-quente" },
+      { w: "penal", m: "estojo escolar para guardar lápis e canetas" },
+      { w: "japona", m: "jaqueta grossa de inverno" }
     ],
-    expressoes: ["\"Daí, tu vai ou não vai?\"", "\"O piá é bem levado.\""],
-    frase: "Daí eu falei pro piá que o leite tava caro.",
+    expressoes: ["“Dois pila a passagem.”", "“Não dá bola pra isso.”"],
+    frase: "Piazada, levem a japona que hoje de tarde o tempo vai virar.",
     rate: 0.9, pitch: 0.98
   },
   {
@@ -66,21 +66,21 @@ const REGIOES = [
     cor: "#D98A55",
     x: 520, y: 340,
     influencia: "Tropeirismo",
-    imigracao: "Tropeiros, portugueses, eslavos e holandeses",
-    origem: "Rota histórica dos tropeiros que ligavam o Sul a São Paulo; berço da cultura tropeira.",
-    fonetica: "Fala mais lenta e aberta que a de Curitiba, com marcas do campo.",
-    descricao: "Planícies e a herança dos tropeiros que carregaram palavras por todo o Sul.",
+    imigracao: "Tropeiros paulistas e gaúchos, além de poloneses, ucranianos e holandeses.",
+    origem: "Rota histórica de passagem de gado e tropas que ligava o Rio Grande do Sul a São Paulo.",
+    fonetica: "Sotaque paranaense tradicional, com fala cadenciada e o “E” pronunciado de forma clara.",
+    descricao: "Paisagens de campos nativos e formações rochosas, berço histórico do tropeirismo paranaense.",
     curiosidades: [
-      "O 'feijão tropeiro' nasceu da comida prática dos tropeiros nessas rotas.",
-      "Muitas fazendas da região preservam vocabulário do ciclo do gado."
+      "O Parque Estadual de Vila Velha, com seus arenitos, é o grande símbolo natural da região.",
+      "A herança tropeira reflete-se na culinária local, como no famoso pão no bafo."
     ],
     palavras: [
-      { w: "tropa", m: "conjunto de mulas de carga" },
-      { w: "pousada", m: "parada de descanso dos tropeiros" },
-      { w: "bruaca", m: "bolsa de couro usada na tropa" }
+      { w: "alambique", m: "local rústico de fazer cachaça" },
+      { w: "aviar", m: "apressar-se, arrumar as coisas" },
+      { w: "tina", m: "recipiente redondo de madeira para lavar roupas ou guardar água" }
     ],
-    expressoes: ["\"Vamo aviá a tropa.\"", "\"Faz um pouso aqui.\""],
-    frase: "A tropa parou pra um pouso antes de seguir viagem.",
+    expressoes: ["“Deus o livre!”", "“Isso é do tempo do onça.”"],
+    frase: "Deus o livre sair com esse vento frio batendo, vamo se aviar logo!",
     rate: 0.92, pitch: 0.97
   },
   {
@@ -91,21 +91,21 @@ const REGIOES = [
     cor: "#B58BC7",
     x: 370, y: 300,
     influencia: "Mistura sulista",
-    imigracao: "Gaúchos, catarinenses, italianos, alemães e paraguaios",
-    origem: "Colonizada por migrantes do RS e SC no século XX, é um caldeirão de sotaques do Sul.",
-    fonetica: "Convivem o 'r' gaúcho, vogais catarinenses e o espanhol da fronteira paraguaia.",
-    descricao: "Fronteira viva onde gaúchos, catarinenses e paraguaios misturaram suas falas.",
+    imigracao: "Gaúchos, catarinenses, alemães, italianos e forte presença paraguaia.",
+    origem: "Região desenvolvida inicialmente pelo ciclo da madeira e, mais tarde, pela soja e pela construção de Itaipu.",
+    fonetica: "Mistura do sotaque sulista (gaúcho e catarinense) com paranaense, em um ritmo de fala mais rápido.",
+    descricao: "Terra de cachoeiras gigantes, agronegócio forte e convivência trinacional.",
     curiosidades: [
-      "É comum ouvir 'bah' gaúcho e palavras em espanhol no mesmo diálogo.",
-      "Foz do Iguaçu, na região, é trilíngue: português, espanhol e guarani."
+      "Foz do Iguaçu abriga uma das maiores diversidades étnicas do Brasil.",
+      "O hábito de tomar tereré (erva-mate com água gelada) é fortíssimo devido à fronteira com o Paraguai."
     ],
     palavras: [
-      { w: "bah", m: "interjeição gaúcha de espanto" },
-      { w: "capaz", m: "'não acredito' / 'de jeito nenhum'" },
-      { w: "guri", m: "menino (do guarani/gaúcho)" }
+      { w: "muamba", m: "mercadoria trazida da fronteira" },
+      { w: "guampa", m: "chifre de boi preparado para se beber tereré" },
+      { w: "piá", m: "menino, garoto" }
     ],
-    expressoes: ["\"Bah, tchê, capaz!\"", "\"O guri é gente boa.\""],
-    frase: "Bah, capaz que o guri fez isso, tchê!",
+    expressoes: ["“Bora tomar um tereré.”", "“Capaz que vou lá!”"],
+    frase: "Bora sentar ali na sombra e tomar um tereré bem gelado, que hoje tá quente.",
     rate: 1.0, pitch: 1.02
   },
   {
@@ -116,21 +116,21 @@ const REGIOES = [
     cor: "#8DBE5A",
     x: 400, y: 470,
     influencia: "Italiano + gaúcho",
-    imigracao: "Descendentes de italianos e gaúchos vindos do RS",
-    origem: "Ocupada por gaúchos de origem italiana, mescla o talian ao falar gaúcho.",
-    fonetica: "Entonação italianada com o 'r' e o 'tchê' gaúchos.",
-    descricao: "O talian encontra o pampa: agroindústria, parreirais e polenta.",
+    imigracao: "Gaúchos de origem italiana e alemã.",
+    origem: "Região de colonização no século XX, desbravada principalmente por migrantes vindos do Rio Grande do Sul.",
+    fonetica: "Sotaque predominantemente gaúcho, mas misturado com os dialetos italianos rurais.",
+    descricao: "Polo colossal do agronegócio e produção de carnes, com forte espírito comunitário e de trabalho.",
     curiosidades: [
-      "O talian, dialeto vêneto-brasileiro, é reconhecido como patrimônio cultural.",
-      "Muita gente ainda reza e canta em talian nas comunidades rurais."
+      "Chapecó é reconhecida como a capital do agronegócio em Santa Catarina.",
+      "Foi aqui que nasceram e se estruturaram gigantes mundiais do setor de alimentos."
     ],
     palavras: [
-      { w: "filó", m: "reunião noturna entre vizinhos" },
-      { w: "polenta", m: "prato de fubá, herança italiana" },
-      { w: "bagual", m: "cavalo xucro; sujeito valente" }
+      { w: "frigorífico", m: "indústria de abate e processamento de carnes" },
+      { w: "gringo", m: "descendente de italianos (usado sem conotação pejorativa)" },
+      { w: "bodega", m: "pequeno comércio de secos e molhados ou barzinho" }
     ],
-    expressoes: ["\"Vamo fazer um filó hoje?\"", "\"A nona fez polenta de novo!\""],
-    frase: "No filó a nona serviu polenta quente, tchê.",
+    expressoes: ["“Mas que barbaridade!”", "“Bah, me caiu os butiá do bolso.”"],
+    frase: "Mas que barbaridade, depois da lida não tem nada melhor que um chima e um salame.",
     rate: 0.98, pitch: 1.05
   },
   {
@@ -141,12 +141,12 @@ const REGIOES = [
     cor: "#D9C6A0",
     x: 560, y: 560,
     influencia: "Gaúcho serrano",
-    imigracao: "Tropeiros e criadores de gado luso-brasileiros",
+    imigracao: "Tropeiros e criadores de gado luso-brasileiros.",
     origem: "Região fria de altitude, de tradição pecuarista e forte cultura gaúcha serrana.",
     fonetica: "Fala arrastada e grave, próxima do falar dos Campos de Cima da Serra.",
     descricao: "Onde neva no Brasil: pinhão, fogo de chão e tradição campeira.",
     curiosidades: [
-      "Lages registra as temperaturas mais baixas do país com certa frequência.",
+      "Lages e São Joaquim registram as temperaturas mais baixas do país com certa frequência.",
       "A cultura do pinhão e da araucária define a identidade serrana."
     ],
     palavras: [
@@ -154,7 +154,7 @@ const REGIOES = [
       { w: "sapecar", m: "tostar levemente no fogo" },
       { w: "campeiro", m: "trabalhador do campo, peão" }
     ],
-    expressoes: ["\"Tá um frio de renguear cusco.\"", "\"Vamo sapecar um pinhão.\""],
+    expressoes: ["“Tá um frio de renguear cusco.”", "“Vamo sapecar um pinhão.”"],
     frase: "Nessa serra fria, nada como um pinhão sapecado no fogo.",
     rate: 0.9, pitch: 0.92
   },
@@ -166,21 +166,21 @@ const REGIOES = [
     cor: "#4F86C6",
     x: 700, y: 500,
     influencia: "Influência alemã",
-    imigracao: "Imigração alemã (século XIX)",
-    origem: "Colonizado por alemães a partir de 1850, preserva língua, arquitetura e costumes germânicos.",
-    fonetica: "Marcas do alemão: o 'r' vibrante e a troca ocasional de sons surdos e sonoros.",
-    descricao: "Casas enxaimel, cerveja artesanal e a Oktoberfest: a Alemanha tropical.",
+    imigracao: "Predominantemente alemães, seguidos por italianos e austríacos.",
+    origem: "Colonização planejada ao longo do rio Itajaí-Açu no século XIX.",
+    fonetica: "Sotaque fortemente marcado pela influência do alemão, com o “R” glotal arranhado na garganta.",
+    descricao: "O “Vale Europeu”, famoso pelas grandes festas de outubro, cervejarias e forte indústria têxtil.",
     curiosidades: [
-      "O 'Hunsrückisch' e o alemão ainda são falados por muitos moradores.",
-      "Blumenau sedia a maior Oktoberfest das Américas."
+      "Blumenau sedia a maior Oktoberfest do mundo fora da Alemanha.",
+      "As construções no estilo enxaimel (madeira encaixada com tijolos) são a marca arquitetônica do Vale."
     ],
     palavras: [
-      { w: "chope", m: "cerveja de barril (do alemão Schoppen)" },
-      { w: "cuca", m: "bolo alemão com farofa doce (Kuchen)" },
-      { w: "kerb", m: "festa comunitária de origem alemã" }
+      { w: "cuca", m: "bolo tradicional de tabuleiro coberto com farofa doce" },
+      { w: "chopp", m: "cerveja não pasteurizada, bebida símbolo da região" },
+      { w: "marreco", m: "ave muito consumida na culinária local, servida com repolho roxo" }
     ],
-    expressoes: ["\"Bota mais um chope!\"", "\"A cuca da vó é a melhor.\""],
-    frase: "Na kerb tinha cuca, chope e muita música alemã.",
+    expressoes: ["“Fazer uma chinelagem.”", "“Tá bom, né?”"],
+    frase: "Mas olha que chinelagem, não tem nem uma fatia de cuca pra comer com esse café!",
     rate: 0.95, pitch: 1.0
   },
   {
@@ -190,22 +190,22 @@ const REGIOES = [
     estado: "Santa Catarina",
     cor: "#3AA6A0",
     x: 720, y: 430,
-    influencia: "Influência alemã / paranaense",
-    imigracao: "Alemães, suíços e migração paranaense",
-    origem: "Polo industrial colonizado por alemães e suíços, com ponte cultural para o Paraná.",
-    fonetica: "Sotaque híbrido, entre a marca germânica e o falar paranaense.",
-    descricao: "A Manchester Catarinense: indústria, dança e herança germânica.",
+    influencia: "Influência alemã",
+    imigracao: "Alemães, suíços, noruegueses e luso-açorianos na faixa litorânea.",
+    origem: "Região desenvolvida em torno da baía de Babitonga e do polo de Joinville (antiga Colônia Dona Francisca).",
+    fonetica: "Sotaque catarinense de ritmo acelerado, com sutis influências germânicas na entonação.",
+    descricao: "Polo industrial de Santa Catarina, famoso pelas flores, pelos festivais de dança e pelo clima úmido.",
     curiosidades: [
-      "Joinville tem a única escola do Teatro Bolshoi fora da Rússia.",
-      "A cidade nasceu de uma colônia ligada à realeza francesa e alemã."
+      "Joinville é a única cidade fora da Rússia a ter uma filial da Escola do Teatro Bolshoi.",
+      "A cidade tem o apelido carinhoso de “Chuville” devido à alta frequência de chuvas."
     ],
     palavras: [
-      { w: "égua", m: "interjeição de espanto/admiração" },
-      { w: "ideia de jerico", m: "ideia sem sentido, furada" },
-      { w: "x-pila", m: "lanche barato tradicional de Joinville" }
+      { w: "chuvisco", m: "chuva fina e constante, comum na região" },
+      { w: "zica", m: "bicicleta" },
+      { w: "chuca", m: "elástico para prender o cabelo" }
     ],
-    expressoes: ["\"Égua, que ideia de jerico!\"", "\"Bora num x-pila depois?\""],
-    frase: "Égua, tu teve uma ideia de jerico de novo!",
+    expressoes: ["“Pegou a zica pra ir trabalhar?”", "“És um galego teimoso.”"],
+    frase: "Pega a zica e vamo logo, antes que esse chuvisco não pare mais.",
     rate: 0.95, pitch: 1.0
   },
   {
@@ -216,21 +216,21 @@ const REGIOES = [
     cor: "#5FC9CE",
     x: 760, y: 590,
     influencia: "Manezinho (açoriano)",
-    imigracao: "Imigração açoriana (século XVIII)",
-    origem: "Colonizado por açorianos, tem o falar 'manezinho', rápido e cantado.",
-    fonetica: "Fala muito veloz, com 's' chiado ('sh') e o 'te'/'de' sem palatalizar: \"tchia\" vira \"tia\".",
-    descricao: "O 'mané da ilha': renda de bilro, pescaria e o falar mais cantado do Sul.",
+    imigracao: "Luso-açorianos predominantes.",
+    origem: "Povoamento colonial litorâneo planejado pela Coroa Portuguesa no século XVIII para garantir território.",
+    fonetica: "O “manezês”, fala extremamente rápida, muito cantada e com o “S” final chiado.",
+    descricao: "Praias paradisíacas, cultura pesqueira fortíssima, rendeiras e lendas folclóricas.",
     curiosidades: [
-      "O manezinho fala tão rápido que virou marca registrada da ilha.",
-      "Muitas palavras e o boi-de-mamão vieram direto dos Açores."
+      "Florianópolis é conhecida como a “Ilha da Magia” devido às antigas lendas de bruxas e lobisomens.",
+      "A tradição da renda de bilro ainda é mantida por senhoras nativas nas vilas de pescadores."
     ],
     palavras: [
-      { w: "mané", m: "morador nativo da ilha (com orgulho)" },
-      { w: "rapariga", m: "moça, garota (sentido neutro, açoriano)" },
-      { w: "fresco", m: "chato, cheio de frescura" }
+      { w: "tainha", m: "peixe símbolo da pesca artesanal catarinense" },
+      { w: "istepô", m: "pessoa desajeitada, incômoda ou inconveniente" },
+      { w: "dazumbanho", m: "expressa grande surpresa ou admiração (dar um banho)" }
     ],
-    expressoes: ["\"Ô meu, tá tri fresco tu!\"", "\"Vamo pra praia, mané!\""],
-    frase: "Ô mané, essa rapariga fala rápido que nem gente da ilha!",
+    expressoes: ["“Ó-lhó-lhó, que istepô!”", "“Segue reto toda a vida.”"],
+    frase: "Ó-lhó-lhó, tu queres ir dar um banho de mar com esse vento sul, seu istepô?",
     rate: 1.18, pitch: 1.08
   },
   {
@@ -241,21 +241,21 @@ const REGIOES = [
     cor: "#C0504D",
     x: 320, y: 720,
     influencia: "Influência espanhola / guarani",
-    imigracao: "Guarani, jesuítas espanhóis e migrantes diversos",
-    origem: "Terra das reduções jesuíticas guarani-espanholas dos séculos XVII e XVIII.",
-    fonetica: "Palavras e sons do espanhol e do guarani impregnam a fala local.",
-    descricao: "Ruínas jesuíticas e a herança guarani-espanhola gravada na língua.",
+    imigracao: "Indígenas guaranis, padres espanhóis, luso-brasileiros e, mais tarde, europeus variados.",
+    origem: "Antigas reduções (missões) onde padres e milhares de indígenas guaranis viveram no século XVII e XVIII.",
+    fonetica: "Sotaque gaúcho clássico, com ritmo fronteiriço cadenciado e influência castelhana.",
+    descricao: "Região mística de rica história jesuítica, localizada nas terras vermelhas e férteis do pampa.",
     curiosidades: [
-      "São Miguel das Missões é Patrimônio Mundial da UNESCO.",
-      "Muitos topônimos da região vêm diretamente do guarani."
+      "As Ruínas de São Miguel das Missões são reconhecidas como Patrimônio Mundial da UNESCO.",
+      "A Cruz Missioneira é o grande símbolo espiritual, cultural e turístico da região."
     ],
     palavras: [
-      { w: "guri", m: "menino (do guarani 'ngiru')" },
-      { w: "tchê", m: "vocativo de origem guarani/espanhola" },
-      { w: "capão", m: "pequena mata isolada no campo (guarani)" }
+      { w: "erva-mate", m: "planta base do chimarrão, nativa e essencial na cultura local" },
+      { w: "causo", m: "história folclórica ou exagerada contada ao redor do fogo" },
+      { w: "índio", m: "termo usado carinhosamente para se referir a um companheiro ou pessoa da terra" }
     ],
-    expressoes: ["\"Tchê, e aí, guri?\"", "\"Lá no capão tem sombra.\""],
-    frase: "Tchê, aquele guri se escondeu no capão de novo.",
+    expressoes: ["“Mas que índio véio!”", "“Tá na mão do palhaço.”"],
+    frase: "Buenas, índio véio, senta aí e ceve um mate bem topetudo enquanto te conto um causo.",
     rate: 1.0, pitch: 1.0
   },
   {
@@ -266,21 +266,21 @@ const REGIOES = [
     cor: "#D8A93A",
     x: 560, y: 760,
     influencia: "Italiano",
-    imigracao: "Imigração italiana (a partir de 1875)",
-    origem: "Colonizada por vênetos e lombardos, é o coração do vinho e do talian no Brasil.",
-    fonetica: "Entonação cantada italiana, com o 'erre' e vogais bem marcadas.",
-    descricao: "Vinhedos, parreirais e a nona fazendo cuca: a Itália do Sul.",
+    imigracao: "Predominantemente italianos e alemães.",
+    origem: "Colonização estruturada pelo império brasileiro no século XIX nas encostas do planalto gaúcho.",
+    fonetica: "Sotaque “gringo” (talian), com fala cantada, forte pronúncia das consoantes e interjeições em dialeto.",
+    descricao: "O pedaço da Itália e da Alemanha no Brasil, com vales repletos de vinícolas, chocolates e turismo forte.",
     curiosidades: [
-      "A Serra produz a maior parte do vinho brasileiro.",
-      "O talian ainda é ouvido em rádios e missas da região."
+      "O Talian (dialeto vêneto brasileiro) é reconhecido como patrimônio cultural imaterial do Brasil.",
+      "Bento Gonçalves e Caxias do Sul formam o maior polo vitivinícola do país."
     ],
     palavras: [
-      { w: "nono / nona", m: "avô / avó (do italiano)" },
-      { w: "grapa", m: "aguardente de bagaço de uva" },
-      { w: "chimia", m: "geleia caseira de frutas" }
+      { w: "nonno / nonna", m: "avô e avó, no vocabulário familiar do dia a dia" },
+      { w: "chimia", m: "doce caseiro de frutas para passar no pão (do alemão schmier)" },
+      { w: "galeto", m: "frango jovem assado na brasa, prato típico da região" }
     ],
-    expressoes: ["\"Mamma mia, que chimia boa!\"", "\"A nona fez grapa de novo.\""],
-    frase: "A nona passou chimia no pão e o nono tomou grapa.",
+    expressoes: ["“Ma che belo!”", "“Dio santo, que frio!”"],
+    frase: "Ma che belo, a nonna já esquentou a polenta na chapa, vamo comer logo que esfriou de vereda!",
     rate: 0.98, pitch: 1.06
   },
   {
@@ -291,21 +291,21 @@ const REGIOES = [
     cor: "#4A78B8",
     x: 640, y: 900,
     influencia: "Gaúcho urbano",
-    imigracao: "Portuguesa, açoriana, alemã, italiana e africana",
-    origem: "Capital cosmopolita onde o falar gaúcho ganhou tom urbano e acelerado.",
-    fonetica: "'Tch' e 'dj' fortes em 'tia'/'dia', 'r' aspirado e o clássico 'bah'.",
-    descricao: "Chimarrão no Guaíba, cacetinho na padaria e o 'bah tri legal' urbano.",
+    imigracao: "Luso-açorianos, alemães, italianos, africanos e poloneses.",
+    origem: "Fundada por casais açorianos no século XVIII, cresceu rápido como o principal porto fluvial da região.",
+    fonetica: "Sotaque metropolitano com o “tu” bem marcado, frequentemente conjugado com verbos na terceira pessoa (ex: “tu vai”).",
+    descricao: "Capital cultural dos gaúchos, onde o tradicionalismo se encontra com o concreto armado e as praças.",
     curiosidades: [
-      "'Tri' (muito) é a gíria intensificadora mais gaúcha que existe.",
-      "O pôr do sol do Guaíba é considerado um dos mais bonitos do mundo."
+      "A orla do Guaíba e o Parque da Redenção são os grandes pontos de encontro nos finais de semana.",
+      "Porto Alegre é uma das capitais mais arborizadas do país, famosa pela Rua Gonçalo de Carvalho."
     ],
     palavras: [
-      { w: "bah", m: "interjeição para tudo" },
-      { w: "tri", m: "muito, super ('tri legal')" },
-      { w: "cusco", m: "cachorro vira-lata" }
+      { w: "tri", m: "prefixo usado para intensificar algo (ex: tri legal, tri caro)" },
+      { w: "cacetinho", m: "pão francês de padaria" },
+      { w: "lomba", m: "ladeira, rua íngreme" }
     ],
-    expressoes: ["\"Bah, tri legal, tchê!\"", "\"Que cusco fofo!\""],
-    frase: "Bah, tchê, esse chimarrão tá tri bom!",
+    expressoes: ["“Bá, que tri legal!”", "“Capaz, tchê!”"],
+    frase: "Bá, tá tri legal o sol hoje pra tomar um chima lá na orla do Guaíba, né?",
     rate: 1.05, pitch: 1.0
   },
   {
@@ -316,21 +316,21 @@ const REGIOES = [
     cor: "#8A6A4A",
     x: 480, y: 1000,
     influencia: "Gaúcho fronteiriço (influência do espanhol)",
-    imigracao: "Luso-brasileiros e forte contato com Uruguai e Argentina",
-    origem: "Pampa de fronteira, onde o português e o espanhol se misturam no 'portunhol'.",
-    fonetica: "Fala pausada e grave, com o 'll'/'y' e palavras do espanhol platino.",
-    descricao: "Pampa infinito, gado, boina e o gauchismo em estado puro.",
+    imigracao: "Luso-brasileiros, espanhóis, além de forte matriz indígena e africana nas charqueadas.",
+    origem: "Disputas territoriais e militares entre Portugal e Espanha ao longo de séculos definiram esta fronteira.",
+    fonetica: "Fala cadenciada, mais arrastada, com forte presença de vocabulário do “portunhol”.",
+    descricao: "As terras planas do extremo sul, berço do gaúcho clássico, das charqueadas e das grandes estâncias de gado.",
     curiosidades: [
-      "Na fronteira nasce o 'portunhol', mistura natural das duas línguas.",
-      "A cultura campeira aqui é praticamente idêntica à do Uruguai."
+      "É a região com divisa seca com o Uruguai; em Sant'Ana do Livramento, basta atravessar a rua para chegar a Rivera.",
+      "O pastoreio e a lida campeira tradicional ainda fazem parte do cotidiano das grandes estâncias."
     ],
     palavras: [
-      { w: "bombacha", m: "calça larga típica do gaúcho" },
-      { w: "bagual", m: "cavalo xucro; homem forte e valente" },
-      { w: "pila", m: "dinheiro; unidade de valor" }
+      { w: "minuano", m: "vento muito frio e cortante vindo do sudoeste" },
+      { w: "cusco", m: "cachorro, geralmente pequeno ou vira-lata" },
+      { w: "bombacha", m: "calça larga na altura dos tornozelos, vestimenta típica do gaúcho" }
     ],
-    expressoes: ["\"Não tenho um pila, tchê.\"", "\"Bota a bombacha e vamo pro campo.\""],
-    frase: "Tchê, sem um pila no bolso e a bombacha suja de barro.",
+    expressoes: ["“Mas bah, tchê!”", "“Te aprochega, vivente.”"],
+    frase: "Te aprochega, vivente, que o minuano hoje tá cortando o rosto de tão frio.",
     rate: 0.9, pitch: 0.95
   }
 ];
@@ -855,36 +855,38 @@ const POVOS = [
     ] }
 ];
 
-/* ---- ÁUDIO REAL (opcional) ------------------------------------------
-   Sistema "plug-and-play": grave seus próprios áudios e coloque em
-   assets/audio/. NÃO precisa mexer neste arquivo.
+/* ---- ÁUDIO REAL ------------------------------------------------------
+   O site toca SOMENTE gravações reais. Não existe mais voz sintética (IA).
+   Uma região só mostra o botão "Ouvir o sotaque" (e só entra nos jogos de
+   escuta) se tiver o arquivo real listado aqui embaixo.
 
-   COMO USAR (fluxo WhatsApp):
-   1. Grave o áudio de cada região no WhatsApp.
-   2. Baixe pelo WhatsApp Web (áudio do WhatsApp sai em .opus).
-   3. Renomeie com o ID da região (ex.: litoral-sc.opus, curitiba.opus).
-   4. Jogue o arquivo dentro de assets/audio/.
+   COMO ADICIONAR O ÁUDIO DE UMA REGIÃO (fluxo WhatsApp):
+   1. Grave o áudio da região no WhatsApp.
+   2. Baixe pelo WhatsApp Web (o áudio sai em .opus).
+   3. Renomeie com o ID da região (ex.: curitiba.opus) e coloque em assets/audio/.
+   4. Descomente (ou adicione) a linha correspondente aqui embaixo.
 
-   Formato .opus toca no Chrome, Edge e Firefox. Se algum arquivo faltar
-   ou o navegador não tocar, o site usa a voz sintética automaticamente.
-
-   Para trocar a extensão (ex.: usar .mp3), é só mudar aqui embaixo.
-   Chaves: "reg:<id>" = frase da região · "wrd:<palavra>" = palavra solta.
+   Formato .opus toca no Chrome, Edge e Firefox. Para usar .mp3, troque a
+   extensão na linha. Chave: "reg:<id>" = frase da região.
 -------------------------------------------------------------------- */
 const AUDIO_MANIFEST = {
-  "reg:norte-pr":     "norte-pr.opus",
-  "reg:curitiba":     "curitiba.opus",
-  "reg:campos-gerais":"campos-gerais.opus",
-  "reg:oeste-pr":     "oeste-pr.opus",
-  "reg:oeste-sc":     "oeste-sc.opus",
-  "reg:planalto-sc":  "planalto-sc.opus",
-  "reg:oeste-vale":   "oeste-vale.opus",
-  "reg:norte-sc":     "norte-sc.opus",
-  "reg:litoral-sc":   "litoral-sc.opus",
-  "reg:missoes":      "missoes.opus",
-  "reg:serra-gaucha": "serra-gaucha.opus",
-  "reg:porto-alegre": "porto-alegre.opus",
-  "reg:campanha":     "campanha.opus"
+  // Regiões COM gravação real (arquivo presente em assets/audio/):
+  "reg:oeste-pr":      "oeste-pr.opus",
+  "reg:campos-gerais": "campos-gerais.opus",
+  "reg:oeste-vale":    "oeste-vale.opus",
+  "reg:litoral-sc":    "litoral-sc.opus",
+  "reg:oeste-sc":      "oeste-sc.opus",
+  "reg:serra-gaucha":  "serra-gaucha.opus",
+  "reg:porto-alegre":  "porto-alegre.opus"
+
+  // Ainda SEM gravação real — grave o .opus, coloque em assets/audio/ e
+  // descomente a linha (não esqueça a vírgula na linha anterior):
+  // ,"reg:norte-pr":    "norte-pr.opus"
+  // ,"reg:curitiba":    "curitiba.opus"
+  // ,"reg:norte-sc":    "norte-sc.opus"
+  // ,"reg:planalto-sc": "planalto-sc.opus"
+  // ,"reg:missoes":     "missoes.opus"
+  // ,"reg:campanha":    "campanha.opus"
 };
 /* Expõe no window: o app.js lê como window.AUDIO_MANIFEST.
    (const no topo não vira propriedade do window sozinho.) */
@@ -909,4 +911,118 @@ const VOZES = [
   { titulo: "Como surgiu o sotaque curitibano (Memória Paranaense)", regiao: "Curitibano · Paraná", yt: "jmvDssuuUZ8", cor: "#e8853b" },
   { titulo: "Santa Catarina e as influências no sotaque", regiao: "Oeste · Santa Catarina", yt: "Tv-py9m_K5A", cor: "#8dbe5a" },
   { titulo: "Dialetos do português brasileiro na fronteira", regiao: "Fronteiriço · Campanha / portunhol", yt: "M6oTvWT7N7w", cor: "#8a6a4a" }
+];
+
+/* ---- JOGO: A RECEITA DO DIALETO SULISTA -----------------------------
+   Cada palavra é um "tempero"; o jogador descobre qual POVO (panela) a
+   trouxe. Ensina a origem do vocabulário do Sul, na lógica da receita.
+   Modo solo e modo duelo em dupla (mesmos temperos, ganha por pontos e,
+   no empate, por tempo).
+-------------------------------------------------------------------- */
+const JOGO_POVOS = [
+  { id: "indigena",  nome: "Indígena",            emoji: "🌿", cor: "#4e7a4a" },
+  { id: "portugues", nome: "Português / Açoriano", emoji: "⚓", cor: "#2e6fa3" },
+  { id: "italiano",  nome: "Italiano",            emoji: "🍷", cor: "#b8443e" },
+  { id: "alemao",    nome: "Alemão",              emoji: "🍺", cor: "#d9a441" },
+  { id: "africano",  nome: "Africano",            emoji: "🥁", cor: "#8a5a34" },
+  { id: "platino",   nome: "Espanhol platino",    emoji: "🐴", cor: "#7b5aa6" }
+];
+const JOGO_TEMPEROS = [
+  { w: "chimarrão", sig: "infusão de erva-mate na cuia",        povo: "indigena",  ori: "do guarani ka'a (erva); rito herdado dos povos originários" },
+  { w: "pinhão",    sig: "semente da araucária, assada no fogo", povo: "indigena",  ori: "alimento típico dos indígenas do planalto" },
+  { w: "guri",      sig: "menino, garoto",                       povo: "indigena",  ori: "do guarani 'ngiru' (companheiro)" },
+  { w: "piá",       sig: "menino (marca do Paraná)",             povo: "indigena",  ori: "do tupi/kaingang: criança" },
+  { w: "capão",     sig: "mata isolada no meio do campo",        povo: "indigena",  ori: "do guarani ka'a-pa'ũ (ilha de mato)" },
+  { w: "mané",      sig: "nativo da Ilha de Florianópolis",      povo: "portugues", ori: "de 'Manuel', nome comum entre os açorianos" },
+  { w: "rapariga",  sig: "moça, garota (sentido neutro)",        povo: "portugues", ori: "português antigo trazido pelos açorianos" },
+  { w: "cacetinho", sig: "pão francês",                          povo: "portugues", ori: "do português 'cacete' (bastão)" },
+  { w: "nona",      sig: "avó",                                  povo: "italiano",  ori: "do italiano 'nonna'" },
+  { w: "grapa",     sig: "aguardente de bagaço de uva",          povo: "italiano",  ori: "do italiano 'grappa'" },
+  { w: "filó",      sig: "reunião noturna entre vizinhos",       povo: "italiano",  ori: "do vêneto 'filò'" },
+  { w: "polenta",   sig: "prato de fubá cozido",                 povo: "italiano",  ori: "da cozinha do norte da Itália" },
+  { w: "cuca",      sig: "bolo com farofa doce",                 povo: "alemao",    ori: "do alemão 'Kuchen' (bolo)" },
+  { w: "chope",     sig: "cerveja de barril",                    povo: "alemao",    ori: "do alemão 'Schoppen' (medida)" },
+  { w: "kerb",      sig: "festa comunitária",                    povo: "alemao",    ori: "do alemão 'Kirchweih' (festa da igreja)" },
+  { w: "vina",      sig: "salsicha (jeito curitibano)",          povo: "alemao",    ori: "de 'Wiener', a salsicha de Viena" },
+  { w: "cafuné",    sig: "carinho na cabeça",                    povo: "africano",  ori: "de raiz banto/quimbundo" },
+  { w: "moleque",   sig: "garoto levado",                        povo: "africano",  ori: "do quimbundo 'mu'leke'" },
+  { w: "quilombo",  sig: "comunidade de resistência",            povo: "africano",  ori: "do quimbundo 'kilombo'" },
+  { w: "caçula",    sig: "filho mais novo",                      povo: "africano",  ori: "de raiz banto" },
+  { w: "bah",       sig: "interjeição de espanto",               povo: "platino",   ori: "da fronteira platina; virou marca do gaúcho" },
+  { w: "tchê",      sig: "vocativo: 'ei, cara'",                 povo: "platino",   ori: "do 'che' platino (e guarani)" },
+  { w: "bombacha",  sig: "calça larga do gaúcho",                povo: "platino",   ori: "do espanhol 'bombacha'" },
+  { w: "cusco",     sig: "cachorro vira-lata",                   povo: "platino",   ori: "do quíchua/espanhol 'cusco'" }
+];
+
+/* ---- JOGO: A BATALHA DA FEIRA (arraste a comida certa) --------------
+   Nomes de comida que confundem quem não é do Sul. emoji = a comida.
+-------------------------------------------------------------------- */
+const FEIRA_ITENS = [
+  { term: "cacetinho", sig: "pão francês",          emoji: "🥖" },
+  { term: "bergamota", sig: "mexerica / tangerina", emoji: "🍊" },
+  { term: "vina",      sig: "salsicha",             emoji: "🌭" },
+  { term: "cuca",      sig: "bolo com farofa doce",  emoji: "🍰" },
+  { term: "chimarrão", sig: "erva-mate na cuia",     emoji: "🧉" },
+  { term: "pinhão",    sig: "semente da araucária",  emoji: "🌰" },
+  { term: "chimia",    sig: "geleia caseira",        emoji: "🍓" },
+  { term: "aipim",     sig: "mandioca",              emoji: "🥔" }
+];
+
+/* ---- JOGO: DIRETOR DE CINEMA (escolha a legenda da cena muda) -------
+   Cenas animadas por emoji (sem GIF externo — funciona offline).
+   'anim' é a classe de animação no CSS. correta = índice da melhor legenda.
+-------------------------------------------------------------------- */
+const CINEMA_CENAS = [
+  { gif: "https://media.giphy.com/media/J336VCs1JC42zGRhjH/giphy.gif", emoji: "🐶👍", anim: "cine-bounce",
+    opcoes: ["Bah, com certeza, tchê!", "Deus o livre, nem pensar!", "Sei lá, tô na maior dúvida."],
+    correta: 0, dica: "O cachorro concorda com tudo — é o maior 'sim'!" },
+  { gif: "https://media.giphy.com/media/TbRkubcqlgBksEqMv4/giphy.gif", emoji: "😸", anim: "cine-bounce",
+    opcoes: ["Bah, que tri legal, adorei!", "Que preguiça, vou dormir.", "Tô numa bronca danada hoje."],
+    correta: 0, dica: "'Tri legal' = muito legal; é pura alegria!" },
+  { gif: "https://media.giphy.com/media/g44IvsMccv59F5FODo/giphy.gif", emoji: "🤪", anim: "cine-shake",
+    opcoes: ["Olha que chinelagem, tchê!", "Que corrida séria, hein!", "Tá um dia lindo pra estudar."],
+    correta: 0, dica: "'Chinelagem' (do Vale do Itajaí) = uma bobagem sem noção." },
+  { gif: "https://media.giphy.com/media/G6TgcESZt8FFk8XV7K/giphy.gif", emoji: "🐱❓", anim: "cine-shake",
+    opcoes: ["Bah, fiquei sem entender nada, tchê.", "Que delícia, amei a comida!", "Tô super tranquilo aqui."],
+    correta: 0, dica: "Cara de quem ficou boiando, sem entender nada." },
+  { gif: "https://media.giphy.com/media/GRk3GLfzduq1NtfGt5/giphy.gif", emoji: "🙀", anim: "cine-pop",
+    opcoes: ["Ó-lhó-lhó, o que foi isso?!", "Que sono, vou cochilar.", "Não tô nem aí pra isso."],
+    correta: 0, dica: "'Ó-lhó-lhó' é a exclamação de surpresa do litoral catarinense." },
+  { gif: "https://media.giphy.com/media/gKHGnB1ml0moQdjhEJ/giphy.gif", emoji: "🐶😨", anim: "cine-pop",
+    opcoes: ["Bah, tchê, que susto de matar!", "Que tédio, nada acontece.", "Tô numa paz total."],
+    correta: 0, dica: "Olhar de quem levou um baita susto." }
+];
+
+/* ---- JOGO: RODA DE CHIMARRÃO (batata-quente) — desafios fáceis ---- */
+const CHIMARRAO_DESAFIOS = [
+  "Qual povo formou o sotaque do Vale do Itajaí (Blumenau)?",
+  "Qual imigração deu origem ao sotaque da Serra Gaúcha?",
+  "De qual povo vem o 'manezês' do Litoral Catarinense?",
+  "Qual migração formou o sotaque do Norte do Paraná?",
+  "A fala fronteiriça da Campanha Gaúcha mistura o português com qual idioma?",
+  "Qual povo, junto dos jesuítas, formou a fala da região das Missões?",
+  "Qual povo colonizou Joinville, no Norte Catarinense?",
+  "Qual o nome do dialeto italiano falado na Serra Gaúcha?",
+  "Qual povo trouxe as palavras 'cuca' e 'chope'?",
+  "O que significa 'bergamota'?",
+  "O que é uma 'pandorga'?",
+  "De onde vem a interjeição 'bah'?",
+  "O que significa 'piá' — e de que origem vem?",
+  "O que quer dizer a expressão 'de vereda'?"
+];
+
+/* ---- JOGO: TELEFONE SEM FIO (mímica/desenho em dupla) ---------------
+   Frases curtas e desenháveis, cheias de regionalismos. dica = tradução.
+-------------------------------------------------------------------- */
+const MIMICA_FRASES = [
+  { f: "O piá soltou a pandorga.",        dica: "piá = menino · pandorga = pipa" },
+  { f: "O cusco fugiu no mato.",          dica: "cusco = cachorro vira-lata" },
+  { f: "A nona fez cuca.",                dica: "nona = avó · cuca = bolo" },
+  { f: "Tomei chimarrão na lomba.",       dica: "lomba = ladeira" },
+  { f: "Comprei bergamota na feira.",     dica: "bergamota = mexerica" },
+  { f: "O guri comeu o cacetinho.",       dica: "guri = menino · cacetinho = pão francês" },
+  { f: "Que frio de renguear cusco!",     dica: "quer dizer: muito frio" },
+  { f: "Bah, perdi a bombacha!",          dica: "bombacha = calça larga do gaúcho" },
+  { f: "A vó passou chimia no pão.",      dica: "chimia = geleia caseira" },
+  { f: "O gato subiu na araucária.",      dica: "araucária = pinheiro do Sul" }
 ];

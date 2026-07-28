@@ -1,28 +1,32 @@
 COMO COLOCAR OS AUDIOS REAIS (fluxo WhatsApp)
 ==============================================
 
-1. Grave o audio de cada regiao no WhatsApp (pode mandar para voce mesmo).
+IMPORTANTE: o site toca SOMENTE gravacoes reais. Nao ha mais voz
+sintetica (IA). Uma regiao so mostra o botao "Ouvir o sotaque" (e so
+entra nos jogos de escuta) quando o audio dela existe.
+
+1. Grave o audio da regiao no WhatsApp (pode mandar para voce mesmo).
 2. Baixe pelo WhatsApp Web no PC (o audio sai no formato .opus).
 3. Renomeie com o ID da regiao e coloque o arquivo AQUI (assets/audio/).
-4. Pronto. Nao precisa mexer em codigo.
+4. Abra js/data.js -> AUDIO_MANIFEST e descomente (ou adicione) a linha
+   daquela regiao.
 
-O que faltar continua usando a voz sintetica do navegador (fallback).
 Formato .opus toca no Chrome, Edge e Firefox.
+Para usar outra extensao (ex.: .mp3), troque no AUDIO_MANIFEST.
 
-NOMES DOS ARQUIVOS (frase de cada regiao):
-  norte-pr.opus
-  curitiba.opus
-  campos-gerais.opus
+JA TEM GRAVACAO REAL (arquivos presentes):
   oeste-pr.opus
-  oeste-sc.opus
-  planalto-sc.opus
+  campos-gerais.opus
   oeste-vale.opus
-  norte-sc.opus
   litoral-sc.opus
-  missoes.opus
+  oeste-sc.opus
   serra-gaucha.opus
   porto-alegre.opus
-  campanha.opus
 
-O mapeamento fica em js/data.js -> AUDIO_MANIFEST (ja esta pronto).
-Para usar outra extensao (ex.: .mp3), troque la.
+AINDA FALTA GRAVAR (sem audio no momento):
+  norte-pr.opus
+  curitiba.opus
+  norte-sc.opus
+  planalto-sc.opus
+  missoes.opus
+  campanha.opus
